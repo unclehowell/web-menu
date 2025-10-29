@@ -1,0 +1,5 @@
+{
+  "name": "Copy of WebStation 3",
+  "description": "A fully functional recreation of the PlayStation 3's XrossMediaBar (XMB) interface using React and Tailwind CSS. Navigate the classic menu system with your arrow keys.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebStation 3</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <audio id="startup" src="https://menonparik.github.io/xmb-on-web/audio/startup.mp3"></audio>
+    <audio id="nav" src="https://menonparik.github.io/xmb-on-web/audio/nav.mp3"></audio>
+
+    <video class="back-vid" autoplay muted playsinline id="vid">
+      <source src="https://menonparik.github.io/xmb-on-web/images/vid.mp4" type="video/mp4" />
+    </video>
+
+    <div class="title" id="title">
+      <h1>WebStation 3</h1>
+      <p>By TheGreatest</p>
+    </div>
+
+    <div class="warning">
+        <div class="warninghead">
+            <h1>Health and Safety Warning</h1>
+        </div>
+      <p>Please read the Health and Safety Precautions in the instruction manual before using the system.</p>
+    </div>
+
+    <div id="menu">
+      <div class="clock">
+        <div class="clock-container">
+            <p id="date"></p>
+        </div>
+      </div>
+      <div class="xmb-main">
+        
+        <!-- Home -->
+        <div class="xmb-title homeMenu active">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADGWyb7AAAABmJLR0QA/wD/AP+gvaeTAAAJo0lEQVR4nO3dfXAcZR0H8O9v95aS9ECH916Iesk9uyEHRgSZFkqxnXEUhZa+QKuU8iLiIKPgy0jLjFJ1fKnDiDi+gONQwLaWl4a2oMPL2FJbapUihDHJPvusBBsarKLjH2kuvVz25x+3qbWmbZLbvcuW5/PnPbe/53f3ndt9dm9zATRN0zRN0zRN0zRN0zRN0zRtgqjWDUSNmU3P8240DGMBMzMRtedyudVEFNS6tygdV8G5rnuSYRjrAFxx2NDzlmVdk81m/12LvuJw3ATn+34uCIKnALQAGAbwY5Rf320ATACuYRhX5nI5v4ZtRua4CE5KOZOI2gGcDqCfiJYKITYBgO/7HwuCYD2AdwH4VxAEV7e0tGypZb9RMGrdQKU8z7uFiLagHNobhmHMEEJsYmZiZsrlcs8MDw9fCuANAKcYhvGMlPJzte26con9xDGzqZT6NoA7w4d+n0ql5jc1Ne3r6ek5cWho6BcApqTT6eszmcxAd3f3qaZpbgBwWfj8n+/du/e22bNnl2ryAiqUyODCRchaAFeGD62vq6u7qbGxseC6bsYwjI0APhSOvWqa5rzm5uY9SqkpzHw/gBvCsWcty1qSxEVL4oLzPK8JwFMAWgEwM3/TcZyV4dgHAGwC8J7DNnuLmec5jvNS+LzbAfwAgEFEXqlUuvKcc87xqvcqKpeo4FzXvcQwjHYAZwDoZ+brHMfZCABKqUXM/DCA+iNsPkhENwsh1gKAlPJyIloP4GQA/ySiRUKIF6rxOqKQmOCUUp9m5p8COAHAHmae6zhOBzOT7/tfY+aVOPbrYSJamcvlvkVELKVsI6LNKH9Ci0R0qxDiwfH2Fh5TVwOYB6AOAAPoBnCTbdt/GG+9sZj0wTGz6fv+Kmb+cvjQwUVIb29vXaFQeBDAknGWPXhMfP31188slUpPApgRjt0jhFhORMNjLaaUuoOZ7x1lqNO27XPH2duYTOrTAdd1T1JKbRoJjZnXWJY1p6mpaV9XV9e0QqHwAsYfGgAsKRQKL3R1dU1ramraZ1nWHABrw7GvKKU2uq570liLMXPLEYZaJ9DbmEza4JRSZxuGsQ3AJ1BehHzDtu1l2Wx2UErZlkqldgG4qIIpLkqlUrtd170wm80O2ra9FMAdAAIAVxiGsdN13ewYax1pzxXbHm1SBqeUmsHMuwGcD2A/My90HGclEbHneQuJ6EX8/8pxIjKGYWz3PO9TAGDb9n0ArgawH8C5hmG8pJS67KgVamTSBed53ieZeQuAMwHsDYLgw47jPBmO3Q7gMQBTI5zyRABrpJQrmZls224PguBiAHsAnMrMz3qed8MxalTdpAmOmUlKuRLAOpTfzFeIaHpLS8tupdQUpdTDAH6IeHomIrrb87z1vb29dS0tLa+VSqXpAP4IYAqA1Z7n3cfMk+b9mhSNdHZ2pn3fbyeiu8OHHk+n0zOFEG9KKU9j5ueZeVncfRDRNYVCYUtPT89Zra2tbxHRLGZeEw5/wff9p5VSJ8fdx1jUPDgpZYNlWduY+SqUz39WCSEWZzKZAdd13w9gN4BLq9jS9KGhod2+718ghDhg2/YyIloOIGDmywHs6O7ufl8V+xlVTYNTSk1HOZgPAhgEsNS27eXhyfHHDcPYTkTvrUFrDUEQbJNSziciFkKsIqLFAAaY+TzTNF/yPG9WDfo6qGbBSSkXM/MWIjoLQB8zz7Jtex1QXoQQ0VMoX46qlalEtGFk0SKEeALAJSgvWk4D8JyUMvbd95FU/coJM5PneXcT0dfD+V81DGNuLpfrDa/ePwDg+mr3dQxH+/bhR0RUz8w3j7ahbduxvMdVDa6jo2NqXV3dLwHMBwBmfqy+vv6GxsbGgu/7ZwwPDz9JRBdXs6exYuadpmnOz+Vyf+/r66vv7+9/COVzPqC8mz9xtO0SH5yUssEwjI3MfCHKi5DvCyHuIqKgu7v7PNM0NwOo+UH/GN4konlCiD+FF7e/yszfwVEOOXEFV5VjnFLqfCLaFYZ2gIiWhYuQQEp5uWma2zH5QwOAs5l5m5TyqkMWLUsADFS7kdiDU0pdw8w7AJyN8heas4QQa4CDi5CnUb6RJynSRNQeXiyAEOJxIpoJoLeaTcS2qzxkV/LdcJ4O0zTnNjc37+ns7DzBsqz7AdwY1/xV8ivLsm7KZrODrutmTNPcFO5VDkrUMS48eD8MYFH40IZCoXB9W1vbfqXU6czcDmBmHHPXwA4iWiCE+Ee4+HoEwIKRwXQ6PTWTyUS+K408uNGWy0KILxJR4Pv+uUEQbAYw1q9LkuJNIporhHhltNOdkZuVopww0uDCm3U2A2gEcICZb3Ec5xEAUEp9lJkfRbKOZ+PRT0TXCiE2A+ULDES0GuVbGf7nZqUoRLY4UUotAvAiyqG9zcwfGQnN87xbmDlpi5DxSjNzu1LqTgBwHOdRIprDzH8DMI2IfqeUujaqySr+xI1yPvNaqVSa29ra+tetW7emMpnMfUT0ucpbTZQHh4aGbs3n80UpZQMRbQJwAQ47f61kgoqC6+3trRscHFzNzIsBgIg2FovF6/L5fL+U8jQiegL/vXP4nWYbMy9yHOftzs7OdCqVWkNE88Kx9ZZl3ZjNZgcnWryiXWWhUFgxEhozfy+Xyy3M5/P9AEBEu/DODQ0ALgvfA+Tz+X7bthcAWBWOLSkWiysqKZ6qZGMi2sHMHUR0j23baw4bbq6k9nHi4HsQ7hqXK6X+zMx3ENGOSgrHdgLueR7HVTtJEn2tUoueDi6hdHAJpYNLKB1cQungEkoHl1AVnYDXCjPvJKIVhULh5ba2tv0TqdHR0TG1vr7+wvCL3hnH3GCSSdwJODPvtG171nj+8PBotm7dmmpoaNgOYHoU9Q6nT8BDhmHcFVVoADB79uwSEX0pqnrVkrjgBgYGdkdds1gsvhx1zbglLriJHtOOJp/PF6OuGbfEBaeV6eASSgeXUDq4hNLBJZQOLqF0cAmlg0soHVxC6eASSgeXUDq4hNLBJZQOLqF0cAmlg0soHVxC6eDiFdm9MYfTwcVrX1yF4wxuwn8mexzpiqtwbMERUaS/65FEzLwxrtqxBcfMv4mrdkK8NTg4+FBcxWMLzjTNewEU4qo/yQVEdGsctxKOiPX3KqWUy4jooYjn+WyEtQ71QER1hpn5dsdxfhJRvVHF/kOj4c8e/gzAKXHPNQl0M/PnHcf5bdwTVeUXYnt6et5dLBaXEtEcANMAWNWYt0reZua/APh1X1/fc0n9152apmmapmmapmmapmmapmmapmmapmmapmmapmmapmlJ9R+YS+LLw10rBwAAAABJRU5kJggg==" alt="Home">
+            <p class="titletext">Home</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <div class="about-bg">
+                        <div class="infowrapper">
+                            <h1>WebStation 3</h1>
+                            <p>Created by TheGreatest from a design by Menon Bear.</p>
+                            <p>This is a recreation of the classic PS3 XMB interface for web.</p>
+                        </div>
+                    </div>
+                    <img class="abimg" src="https://menonparik.github.io/xmb-on-web/images/user.png" alt="User">
+                    <p id="about">User 1</p>
+                </div>
+                <div class="submenu two">
+                </div>
+                <div class="submenu three"></div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="xmb-title settings">
+            <img src="https://menonparik.github.io/xmb-on-web/images/settings.png" alt="Settings">
+            <p class="titletext">Settings</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/update.png" alt="Update">
+                    <p id="about">System Update</p>
+                    <p class="subtext">Update system software.</p>
+                </div>
+                <div class="submenu two">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/display.png" alt="Display">
+                    <p id="disptext">Display Settings</p>
+                    <p class="subtext">Adjust video output settings.</p>
+                </div>
+                <div class="submenu three">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/display.png" alt="System">
+                    <p id="systext">System Settings</p>
+                    <p class="subtext">Configure various system settings.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Messages -->
+        <div class="xmb-title messages">
+            <img src="https://menonparik.github.io/xmb-on-web/images/photo.png" alt="Messages">
+            <p class="titletext">Messages</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/photo.png" alt="Inbox">
+                    <p>Inbox</p>
+                </div>
+                <div class="submenu two"></div>
+                <div class="submenu three"></div>
+            </div>
+        </div>
+
+        <!-- Music -->
+        <div class="xmb-title music">
+            <img src="https://menonparik.github.io/xmb-on-web/images/music.png" alt="Music">
+            <p class="titletext">Music</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/music.png" alt="2Pac">
+                    <p>2Pac</p>
+                </div>
+                <div class="submenu two">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/music.png" alt="Biggie">
+                    <p>Biggie</p>
+                </div>
+                <div class="submenu three"></div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="xmb-title videos">
+            <img src="https://menonparik.github.io/xmb-on-web/images/video.png" alt="Video">
+            <p class="titletext">Video</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/youtube.png" alt="YouTube">
+                    <p>YouTube</p>
+                </div>
+                <div class="submenu two">
+                    <img src="https://menonparik.github.io/xmb-on-web/images/prime.png" alt="Prime Video">
+                    <p>Amazon Prime Video</p>
+                </div>
+                <div class="submenu three"></div>
+            </div>
+        </div>
+        
+        <!-- Games -->
+        <div class="xmb-title games">
+            <img src="https://menonparik.github.io/xmb-on-web/images/games.png" alt="Games">
+            <p class="titletext">Games</p>
+            <div class="xmb-contents">
+                <div class="submenu one">
+                    <img class="abimg" src="https://menonparik.github.io/xmb-on-web/images/uncharted.png" alt="Uncharted">
+                    <p id="about">Uncharted 3</p>
+                </div>
+                <div class="submenu two">
+                    <img class="twoimg" src="https://menonparik.github.io/xmb-on-web/images/gow3.png" alt="God of War">
+                    <p id="twotext">God of War 3</p>
+                </div>
+                <div class="submenu three"></div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/index.js"></script>
+  </body>
+</html>
